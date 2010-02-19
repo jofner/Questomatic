@@ -1,4 +1,4 @@
-Questomatic readme
+Questomatic 1.5 readme
 =========================================================================================
 
 Are you doing same daily quests every day? Are you leveling another alt and you know all quests in game?
