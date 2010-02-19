@@ -1,0 +1,12 @@
+## Interface: 30300
+## Title: Quest-o-matic
+## Notes: Auto Accept and Complete Quests
+## Author: Miratu <EU-Hellfire>
+
+## Version: 1.5
+## SavedVariables: QOMDB
+## OptionalDeps: Ace3
+## X-Embeds: Ace3
+## X-Category: Quests
+
+embeds.xml
