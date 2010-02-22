@@ -157,17 +157,29 @@ function Questomatic:QUEST_COMPLETE(eventName, ...)
     end
 end
 
+-- 1.6 getVal setVal func
+--
+-- function Questomatic:getVal(info)
+--     return self.db.profile[info.arg];
+-- end
+-- 
+-- function Questomatic:setVal(info, value)
+--     self.db.profile[info.arg] = value
+--     if( self.db.profile[info.arg] ) then
+--         self:Print(info .. ' enabled')
+--     else
+--         self:Print(info .. ' disabled')
+--     end
+--      ClearCache()
+-- end
+
+
 function Questomatic:GetToggle(info)
     return self.db.profile.toggle;
 end
 
 function Questomatic:Toggle(info, value)
     self.db.profile.toggle = value;
-    if self.db.profile.toggle then
-        Questomatic:Print(L["Quest-o-matic Enabled"]);
-    else
-        Questomatic:Print(L["Quest-o-matic Disabled"]);
-    end
 end
 
 function Questomatic:GetAccept(info)
@@ -176,11 +188,6 @@ end
 
 function Questomatic:Accept(info, value)
     self.db.profile.accept = value;
-    if self.db.profile.accept then
-        Questomatic:Print(L["Auto Accept Quests Enabled"]);
-    else
-        Questomatic:Print(L["Auto Accept Quests Disabled"]);
-    end
 end
 
 function Questomatic:GetGreeting(info)
@@ -189,11 +196,6 @@ end
 
 function Questomatic:Greeting(info, value)
     self.db.profile.greeting = value;
-    if self.db.profile.greeting then
-        Questomatic:Print(L["Skip Greetings Enabled"]);
-    else
-        Questomatic:Print(L["Skip Greetings Disabled"]);
-    end
 end
 
 function Questomatic:GetEscort(info)
@@ -202,11 +204,6 @@ end
 
 function Questomatic:Escort(info, value)
     self.db.profile.escort = value;
-    if self.db.profile.escort then
-        Questomatic:Print(L["Auto Accept Escorts Enabled"]);
-    else
-        Questomatic:Print(L["Auto Accept Escorts Disabled"]);
-    end
 end
 
 function Questomatic:GetComplete(info)
@@ -215,11 +212,6 @@ end
 
 function Questomatic:Complete(info, value)
     self.db.profile.complete = value;
-    if self.db.profile.complete then
-        Questomatic:Print(L["Auto Complete Quests Enabled"]);
-    else
-        Questomatic:Print(L["Auto Complete Quests Disabled"]);
-    end
 end
 
 function Questomatic:GetInRaid(info)
@@ -228,9 +220,4 @@ end
 
 function Questomatic:InRaid(info, value)
     self.db.profile.inraid = value;
-    if self.db.profile.inraid then
-        Questomatic:Print(L["Auto Accepting Quests in Raids Enabled"]);
-    else
-        Questomatic:Print(L["Auto Accepting Quests in Raids Disabled"]);
-    end
 end
