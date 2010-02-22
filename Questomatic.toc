@@ -3,7 +3,7 @@
 ## Notes: Auto Accept and Complete Quests
 ## Author: Miratu <EU-Hellfire>
 
-## Version: 1.5
+## Version: 1.5.1
 ## SavedVariables: QOMDB
 ## OptionalDeps: Ace3
 ## X-Embeds: Ace3

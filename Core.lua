@@ -2,7 +2,7 @@ local L = LibStub("AceLocale-3.0"):GetLocale("Questomatic", true)
 Questomatic = LibStub("AceAddon-3.0"):NewAddon("Questomatic", "AceConsole-3.0", "AceEvent-3.0")
 
 local options = {
-    name = "Questomatic",
+    name = "Quest-o-matic",
     handler = Questomatic,
     type = "group",
     args = {
@@ -10,7 +10,7 @@ local options = {
             order = 1,
             type = "toggle",
             name = L["AddOn Enable"],
-            desc = L["Enable/Disable Questomatic"],
+            desc = L["Enable/Disable Quest-o-matic"],
             get = "GetToggle",
             set = "Toggle",
         },
@@ -77,9 +77,7 @@ local defaults = {
 }
 
 function Questomatic:OnInitialize()
-    Questomatic:Print("Questomatic v" .. GetAddOnMetadata("Questomatic", "Version") .. " " .. L["Initialized, type /qm for settings or /qm config for config dialog"]);
     self.db = LibStub("AceDB-3.0"):New("QOMDB", defaults, "Default");
-    
     LibStub("AceConfig-3.0"):RegisterOptionsTable("Questomatic", options, {"Questomatic", "qm"});
     LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Questomatic", "Questomatic");
 end
@@ -166,9 +164,9 @@ end
 function Questomatic:Toggle(info, value)
     self.db.profile.toggle = value;
     if self.db.profile.toggle then
-        Questomatic:Print(L["Questomatic Enabled"]);
+        Questomatic:Print(L["Quest-o-matic Enabled"]);
     else
-        Questomatic:Print(L["Questomatic Disabled"]);
+        Questomatic:Print(L["Quest-o-matic Disabled"]);
     end
 end
 
