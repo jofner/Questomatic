@@ -35,5 +35,5 @@ TO-DO
 =========================================================================================
 Quest-o-matic on Curse: http://wow.curse.com/downloads/wow-addons/details/questomatic.aspx
 Quest-o-matic on CurseForge: http://wow.curseforge.com/addons/questomatic/
-Quest-o-matic on WoWInterface: http://www.wowinterface.com/downloads/fileinfo.php?id=14119
+Quest-o-matic on WoWInterface: http://www.wowinterface.com/downloads/info14119-Quest-o-matic.html
 Quest-o-matic on GitHub: http://github.com/risky/Questomatic
