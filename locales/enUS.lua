@@ -1,5 +1,7 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Questomatic", "enUS", true) 
 
+if not L then return end
+
 L["AddOn Enable"] = true
 L["Enable/Disable Quest-o-matic"] = true
 L["Auto Accept Quests"] = true

@@ -1,7 +1,8 @@
-﻿local L = LibStub("AceLocale-3.0"):NewLocale("Questomatic", "zhTW") 
+local L = LibStub("AceLocale-3.0"):NewLocale("Questomatic", "zhTW", false) 
 -- Traditional Chinese Localization by whocare@尖石
 
-L["Initialized, type /qm for settings or /qm config for config dialog"] = "鍵入 /qm 進行設定 或 /qm config 開啟設置視窗"
+if not L then return end
+
 L["AddOn Enable"] = "啟用插件"
 L["Enable/Disable Questomatic"] = "啟用/停用 Questomatic"
 L["Auto Accept Quests"] = "自動接受任務"
@@ -16,16 +17,3 @@ L["Auto Accept in Raid"] = "自動接受團隊任務"
 L["Enable/Disable auto accepting quests in raid"] = "啟用/停用 自動接受團隊任務"
 L["Config"] = "設置"
 L["Open configuration"] = "開啟組態設置"
-
-L["Questomatic Enabled"] = "啟用Questomatic"
-L["Questomatic Disabled"] = "停用Questomatic"
-L["Auto Accept Quests Enabled"] = "啟用 自動接受任務"
-L["Auto Accept Quests Disabled"] = "停用 自動接受任務"
-L["Skip Greetings Enabled"] = "啟用 略過NPC歡迎致詞"
-L["Skip Greetings Disabled"] = "停用 略過NPC歡迎致詞"
-L["Auto Accept Escorts Enabled"] = "啟用 自動接受護送任務"
-L["Auto Accept Escorts Disabled"] = "停用 自動接受護送任務"
-L["Auto Complete Quests Enabled"] = "啟用 自動完成任務"
-L["Auto Complete Quests Disabled"] = "停用 自動完成任務"
-L["Auto Accepting Quests in Raids Enabled"] = "啟用 自動接受團隊任務"
-L["Auto Accepting Quests in Raids Disabled"] = "停用 自動接受團隊任務"
