@@ -1,6 +1,5 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Questomatic", "enUS", true) 
 
-L["Initialized, type /qm for settings or /qm config for config dialog"] = true
 L["AddOn Enable"] = true
 L["Enable/Disable Quest-o-matic"] = true
 L["Auto Accept Quests"] = true
@@ -15,16 +14,3 @@ L["Auto Accept in Raid"] = true
 L["Enable/Disable auto accepting quests in raid"] = true
 L["Config"] = true
 L["Open configuration"] = true
-
-L["Quest-o-matic Enabled"] = true
-L["Quest-o-matic Disabled"] = true
-L["Auto Accept Quests Enabled"] = true
-L["Auto Accept Quests Disabled"] = true
-L["Skip Greetings Enabled"] = true
-L["Skip Greetings Disabled"] = true
-L["Auto Accept Escorts Enabled"] = true
-L["Auto Accept Escorts Disabled"] = true
-L["Auto Complete Quests Enabled"] = true
-L["Auto Complete Quests Disabled"] = true
-L["Auto Accepting Quests in Raids Enabled"] = true
-L["Auto Accepting Quests in Raids Disabled"] = true
