@@ -15,6 +15,6 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 <Script file="locales\enUS.lua"/>
 <Script file="locales\zhTW.lua"/>
 
-<Script file="Core.lua"/> 
+<Script file="Core.lua"/>
 
 </Ui>
