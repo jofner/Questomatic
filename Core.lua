@@ -11,7 +11,7 @@ local options = {
             type = "toggle",
             name = L["AddOn Enable"],
             desc = L["Enable/Disable Quest-o-matic"],
-            get = function( info ) return self.db.profile.toggle end,
+            get = function() return self:IsEnabled() end,
             set = function( info, value ) self.db.profile.toggle = value end
         },
         accept = {
@@ -89,6 +89,14 @@ function Questomatic:OnEnable()
     self:RegisterEvent("QUEST_ACCEPT_CONFIRM")
     self:RegisterEvent("QUEST_PROGRESS")
     self:RegisterEvent("QUEST_COMPLETE")
+    
+    self.db.profile.toggle = true
+end
+
+function Questomatic:OnDisable()
+    self:UnregisterAllEvents()
+    
+    self.db.profile.toggle = false
 end
 
 function Questomatic:QUEST_GREETING(eventName, ...)
