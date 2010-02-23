@@ -1,6 +1,6 @@
 ## Interface: 30300
 ## Title: Quest-o-matic
-## Notes: Auto Accept and Complete Quests
+## Notes: Auto accepting nor turning in quests
 ## Author: Miratu <EU-Hellfire>
 
 ## Version: 1.5.1
