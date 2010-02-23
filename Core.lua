@@ -11,48 +11,48 @@ local options = {
             type = "toggle",
             name = L["AddOn Enable"],
             desc = L["Enable/Disable Quest-o-matic"],
-            get = function() return self:IsEnabled() end,
-            set = function( info, value ) self.db.profile.toggle = value end
+            get = function() return Questomatic.db.profile.toggle end,
+            set = function( info, value ) Questomatic.db.profile.toggle = value end
         },
         accept = {
             order = 2,
             type = "toggle",
             name = L["Auto Accept Quests"],
             desc = L["Enable/Disable auto quest accepting"],
-            get = function( info ) return self.db.profile.accept end,
-            set = function( info, value ) self.db.profile.accept = value end
+            get = function() return Questomatic.db.profile.accept end,
+            set = function( info, value ) Questomatic.db.profile.accept = value end
         },
         greeting = {
             order = 3,
             type = "toggle",
             name = L["Skip Greetings"],
             desc = L["Enable/Disable NPC's greetings skip for one or more quests"],
-            get = function( info ) return self.db.profile.greeting end,
-            set = function( info, value ) self.db.profile.greeting = value end
+            get = function() return Questomatic.db.profile.greeting end,
+            set = function( info, value ) Questomatic.db.profile.greeting = value end
         },
         escort = {
             order = 4,
             type = "toggle",
             name = L["Auto Accept Escorts"],
             desc = L["Enable/Disable auto escort accepting"],
-            get = function( info ) return self.db.profile.escort end,
-            set = function( info, value) self.db.profile.escort = value end
+            get = function() return Questomatic.db.profile.escort end,
+            set = function( info, value) Questomatic.db.profile.escort = value end
         },
         complete = {
             order = 5,
             type = "toggle",
             name = L["Auto Complete Quests"],
             desc = L["Enable/Disable auto quest complete"],
-            get = function( info ) return self.db.profile.complete end,
-            set = function( info, value ) self.db.profile.complete = value end
+            get = function() return Questomatic.db.profile.complete end,
+            set = function( info, value ) Questomatic.db.profile.complete = value end
         },
         inraid = {
             order = 6,
             type = "toggle",
             name = L["Auto Accept in Raid"],
             desc = L["Enable/Disable auto accepting quests in raid"],
-            get = function( info ) return self.db.profile.inraid end,
-            set = function( info, value ) self.db.profile.inraid = value end
+            get = function() return Questomatic.db.profile.inraid end,
+            set = function( info, value ) Questomatic.db.profile.inraid = value end
         },
         config = {
             order = 7,
