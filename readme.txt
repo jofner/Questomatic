@@ -31,7 +31,7 @@ By default, all features are enabled except escort.
 TO-DO
     - managing and selecting finished quests
     - add option to select key for temporary disabling auto functions
-    - option for dailies only
+    - option for dailies/high lvl quests only
 
 =========================================================================================
 Quest-o-matic on Curse: http://wow.curse.com/downloads/wow-addons/details/questomatic.aspx
