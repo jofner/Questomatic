@@ -28,10 +28,46 @@ There is two ways to config Quest-o-matic. Config dialog - press ESC > Interface
 
 By default, all features are enabled except escort.
 
-TO-DO
+=========================================================================================
+Quest-o-matic TO-DO
+=========================================================================================
+
     - managing and selecting finished quests
     - add option to select key for temporary disabling auto functions
     - option for dailies/high lvl quests only
+
+=========================================================================================
+Quest-o-matic changelog
+=========================================================================================
+
+1.5.1
+    Traditional Chinese translation added (thanks to whocare) 
+    Info/Spam messages removed 
+    TO-DO added to readme 
+    Useless functions removed and code optimization 
+
+1.5
+    project renamed from FastQuest to Quest-o-matic 
+    Option for auto accepting quests in raid added 
+
+1.4
+    TOC updated for 3.3.0 
+    Ace libs updated to latest version 
+
+1.3
+    added localisation support 
+    updated TOC for 3.2.0 
+
+1.2
+    added settings into Interface > AddOns menu 
+    small code changes 
+
+1.1
+    added option to enable/disable auto "greetings" skip 
+    added "temporary disable addon functions" key - Ctrl 
+
+1.0
+    Initial release
 
 =========================================================================================
 Quest-o-matic on Curse: http://wow.curse.com/downloads/wow-addons/details/questomatic.aspx
