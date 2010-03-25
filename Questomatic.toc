@@ -3,7 +3,7 @@
 ## Notes: Auto accepting nor turning in quests
 ## Author: Miratu <EU-Hellfire>
 
-## Version: 1.5.1
+## Version: 1.5.2
 ## SavedVariables: QOMDB
 ## OptionalDeps: Ace3
 ## X-Embeds: Ace3
