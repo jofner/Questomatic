@@ -40,6 +40,13 @@ Quest-o-matic TO-DO
 Quest-o-matic changelog
 =========================================================================================
 
+1.5.3
+    TOC updated for WoW 4x
+    AceLib updated to latest version
+
+1.5.2
+    Revision
+
 1.5.1
     Traditional Chinese translation added (thanks to whocare) 
     Info/Spam messages removed 
