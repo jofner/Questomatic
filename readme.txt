@@ -40,6 +40,9 @@ Quest-o-matic TO-DO
 Quest-o-matic changelog
 =========================================================================================
 
+1.5.4
+    upupdate zhCN and zhTW locale by networm
+
 1.5.3
     TOC updated for WoW 4x
     AceLib updated to latest version
