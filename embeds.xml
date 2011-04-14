@@ -13,6 +13,7 @@ xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 <Include file="libs\AceLocale-3.0\AceLocale-3.0.xml"/>
 
 <Script file="locales\enUS.lua"/>
+<Script file="locales\zhCN.lua"/>
 <Script file="locales\zhTW.lua"/>
 <Script file="locales\frFR.lua"/>
 
