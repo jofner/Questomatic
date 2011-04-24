@@ -10,8 +10,10 @@ Quest-o-matic is small addon which can auto accept and auto finish quests for yo
     - auto accepting quests
     - auto skipping "greetings" text by NPC
     - auto accpet escort quests (disabled by default)
+    - auto accept daily quests only (optional)
+    - not accept PvP quests (optional)
     - auto turn in quests (only if there is no more then one reward)
-    - temporary disable "auto" functions by holding Ctrl key
+    - temporary disable "auto" functions by holding modifier key (configurable)
 
 Quest-o-matic Config and commands
 
@@ -20,28 +22,35 @@ There is two ways to config Quest-o-matic. Config dialog - press ESC > Interface
     /qm - Show Settings
     /qm toggle - Enable/Disable Quest-o-matic
     /qm accept - Enable/Disable auto quest accepting
+    /qm dailiesonly - Enable/Disable auto accepting for daily quests only
+    /qm pvp - Enable/Disable auto accepting for pvp quests
     /qm greeting - Enable/Disable NPCs greetings skip for one or more quests
     /qm escort - Enable/Disable auto escort accepting
-    /qm quest - Enable/Disable auto quest complete
+    /qm complete - Enable/Disable auto quest complete
     /qm inraid - Enable/Disable auto accepting quests in raid
     /qm config - Open configuration
 
-By default, all features are enabled except escort.
+You can use /qom command too
 
 =========================================================================================
-Quest-o-matic TO-DO
+Quest-o-matic limitations / issues / to-do
 =========================================================================================
 
-    - managing and selecting finished quests
-    - add option to select key for temporary disabling auto functions
-    - option for dailies/high lvl quests only
+-   not possible to check quest level before accepting, then QOM will never have 
+    "Don't accept low level quests" option (for now)
+-   not possible to check PvP quest before accepting, only if quest flags PvP. There is
+    option for PvP flag quests, but this doesn't work for normal PvP quests
 
 =========================================================================================
 Quest-o-matic changelog
 =========================================================================================
 
-1.5.4
-    upupdate zhCN and zhTW locale by networm
+2.0
+    addon rewritten
+    option to select key for temporary disabling auto functions added
+    options for daily quests only added
+    option to disable auto accepting PvP flaggin quests added
+    /qom option command added
 
 1.5.3
     TOC updated for WoW 4x

@@ -1,14 +1,16 @@
 ## Interface: 40000
+
 ## Title: Quest-o-matic
 ## Notes: Auto accepting nor turning in quests
 ## Author: Miratu <EU-Hellfire>
+## Version: 2.0 Alpha
 
-## Version: 1.5.3
 ## SavedVariables: QOMDB
 ## OptionalDeps: Ace3
+
 ## X-Embeds: Ace3
 ## X-Category: Quests
-## X-Curse-Packaged-Version: 1.5.3
+## X-Curse-Packaged-Version: 2.0 Alpha
 ## X-Curse-Project-Name: Questomatic
 ## X-Curse-Project-ID: questomatic
 
