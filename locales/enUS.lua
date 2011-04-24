@@ -25,3 +25,5 @@ L["Enable/Disable auto accepting quests in raid"] = true
 L["Disable Key"] = true
 L["Config"] = true
 L["Open configuration"] = true
+L["Left-click to toggle Quest-o-matic"] = true
+L["Right-click to open Quest-o-matic config"] = true
