@@ -15,7 +15,11 @@ Quest-o-matic is small addon which can auto accept and auto finish quests for yo
     - auto turn in quests (only if there is no more then one reward)
     - temporary disable "auto" functions by holding modifier key (configurable)
 
+
+Quest-o-matic supports LDB display addons like ChocolateBar, Bazooka etc.
+
 Quest-o-matic Config and commands
+=========================================================================================
 
 There is two ways to config Quest-o-matic. Config dialog - press ESC > Interface > AddOns > Quest-o-matic, or chat commands:
 
@@ -51,6 +55,7 @@ Quest-o-matic changelog
     options for daily quests only added
     option to disable auto accepting PvP flaggin quests added
     /qom option command added
+    LDB basic support added
 
 1.5.3
     TOC updated for WoW 4x
