@@ -16,7 +16,9 @@ Quest-o-matic is small addon which can auto accept and auto finish quests for yo
     - temporary disable "auto" functions by holding modifier key (configurable)
 
 
-Quest-o-matic supports LDB display addons like ChocolateBar, Bazooka etc.
+Quest-o-matic supports LDB display addons like ChocolateBar, Bazooka etc. Exclamation point on your bar 
+means that the addon is enabled, the question mark means it is disabled. Left click changes the status 
+of the addon, right click opens the settings.
 
 Quest-o-matic Config and commands
 =========================================================================================
