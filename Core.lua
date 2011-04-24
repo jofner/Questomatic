@@ -154,18 +154,11 @@ function QOM:OnDisable()
     self.db.char.toggle = false
 end
 
-
--- basic config check for common settings
--- calls on each event fire (thats bad but...)
 function QOM:CheckConfigs()
-    --QOM:Print("QOM:CheckConfigs()")
     if ( not self.db.char.toggle ) then return end
-    --QOM:Print("Addon enabled")
     if UnitInRaid("player") and ( not self.db.char.inraid ) then return end
-    --QOM:Print("InRaid passed")
     
     if IsModifierKeyDown() then
-        --QOM:Print("Diskey = " .. self.db.char.diskey);
         if     ( self.db.char.diskey == 1 ) and IsAltKeyDown() then return
         elseif ( self.db.char.diskey == 2 ) and IsControlKeyDown() then return
         elseif ( self.db.char.diskey == 3 ) and IsShiftKeyDown() then return end
@@ -175,10 +168,6 @@ function QOM:CheckConfigs()
 end
 
 function QOM:CheckQuestData()
-    --QOM:Print("CheckQuestData()")
-    --QOM:Print("isDaily: " .. ( QuestIsDaily() or 0 ) )
-    --QOM:Print("isPvP: " .. ( QuestFlagsPVP() or 0 ) )
-    --QOM:Print("QuestID: " .. GetQuestID() )
     if ( not QuestIsDaily() ) and self.db.char.dailiesonly then return end
     if QuestFlagsPVP() and ( not self.db.char.pvp ) then return end
     
@@ -186,7 +175,6 @@ function QOM:CheckQuestData()
 end
 
 function QOM:QUEST_GREETING(eventName, ...)
-    --QOM:Print("QUEST_GREETING")
     if QOM:CheckConfigs() and self.db.char.greeting then
         local numact,numava = GetNumActiveQuests(), GetNumAvailableQuests()
         if numact+numava == 0 then return end
@@ -201,7 +189,6 @@ function QOM:QUEST_GREETING(eventName, ...)
 end
 
 function QOM:GOSSIP_SHOW(eventName, ...)
-    --QOM:Print("GOSSIP_SHOW")
     if QOM:CheckConfigs() and self.db.char.greeting then
         if GetGossipAvailableQuests() then
             SelectGossipAvailableQuest(1)
@@ -212,33 +199,24 @@ function QOM:GOSSIP_SHOW(eventName, ...)
 end
 
 function QOM:QUEST_DETAIL(eventName, ...)
-    --QOM:Print("QUEST_DETAIL")
-    --QOM:Print("isDaily: " .. ( QuestIsDaily() or 0 ) )
-    --QOM:Print("isPvP: " .. ( QuestFlagsPVP() or 0 ) )
-    --QOM:Print("QuestID: " .. GetQuestID() )
-    --if ( not QuestIsDaily() ) and self.db.char.dailiesonly then return end
-    --if QuestFlagsPVP() and ( not self.db.char.pvp ) then return end
     if QOM:CheckConfigs() and QOM:CheckQuestData() and self.db.char.accept then 
         AcceptQuest()
     end
 end
 
 function QOM:QUEST_ACCEPT_CONFIRM(eventName, ...)
-    --QOM:Print("QUEST_ACCEPT_CONFIRM")
     if QOM:CheckConfigs() and self.db.char.escort then
         ConfirmAcceptQuest()
     end
 end
 
 function QOM:QUEST_PROGRESS(eventName, ...)
-    --QOM:Print("QUEST_PROGRESS")
     if QOM:CheckConfigs() and self.db.char.complete then
         CompleteQuest()
     end
 end
 
 function QOM:QUEST_COMPLETE(eventName, ...)
-    --QOM:Print("QUEST_COMPLETE")
     if QOM:CheckConfigs() and self.db.char.complete then
         if GetNumQuestChoices() == 0 then
             GetQuestReward( QuestFrameRewardPanel.itemChoice )
