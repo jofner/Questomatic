@@ -1,5 +1,52 @@
+--[[
+Copyright (c) 2010-2011, RiskyNet < riskynet@gmail.com >
+All rights reserved.
+]]
+
+local QOM = LibStub("AceAddon-3.0"):NewAddon("Questomatic", "AceConsole-3.0", "AceEvent-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Questomatic", true)
-QOM = LibStub("AceAddon-3.0"):NewAddon("Questomatic", "AceConsole-3.0", "AceEvent-3.0")
+local QOMLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Questomatic",{
+    type = "data source",
+    text = "Quest-o-matic",
+    label = "Questomatic",
+    icon = "Interface\\GossipFrame\\AvailableQuestIcon",
+    OnClick = function(self, button)
+        if button == "LeftButton" then
+            if QOM.db.char.toggle then
+                QOM.db.char.toggle = false
+            else
+                QOM.db.char.toggle = true
+            end
+            QOM:toggleIcon(QOM.db.char.toggle)
+        else
+            InterfaceOptionsFrame_OpenToCategory("Questomatic")
+        end
+    end,
+    OnTooltipShow = function(tooltip)
+        tooltip:AddLine("Quest-o-matic")
+        tooltip:AddLine(" ")
+        tooltip:AddLine(L["Left-click to toggle Quest-o-matic"], 0, 1, 0)
+        tooltip:AddLine(L["Right-click to open Quest-o-matic config"], 0, 1, 0)
+    end,
+})
+local icon = LibStub("LibDBIcon-1.0")
+
+local defaults = {
+    char = {
+        toggle = true,
+        accept = true,
+        greeting = true,
+        escort = false,
+        complete = true,
+        inraid = true,
+        dailiesonly = false,
+        pvp = false,
+        mapbutton = {
+            hide = false,
+        },
+        diskey = 2,
+    },
+}
 
 local options = {
     name = "Quest-o-matic",
@@ -24,7 +71,10 @@ local options = {
                     name = L["AddOn Enable"],
                     desc = L["Enable/Disable Quest-o-matic"],
                     get = function() return QOM.db.char.toggle end,
-                    set = function( info, value ) QOM.db.char.toggle = value end
+                    set = function( info, value )
+                        QOM.db.char.toggle = value
+                        QOM:toggleIcon(QOM.db.char.toggle)
+                    end
                 },
                 accept = {
                     order = 4,
@@ -98,8 +148,23 @@ local options = {
                     get = function() return QOM.db.char.greeting end,
                     set = function( info, value ) QOM.db.char.greeting = value end
                 },
-                diskey = {
+                mapbutton = {
                     order = 13,
+                    type = "toggle",
+                    name = L["Hide Minimap Button"],
+                    desc = L["Enable/Disable minimap button"],
+                    get = function() return QOM.db.char.mapbutton.hide end,
+                    set = function( info, value )
+                        QOM.db.char.mapbutton.hide = value
+                        if value == true then
+                            icon:Hide("Questomatic")
+                        else
+                            icon:Show("Questomatic")
+                        end
+                    end
+                },
+                diskey = {
+                    order = 14,
                     type = "select",
                     name = L["Disable Key"],
                     get = function() return QOM.db.char.diskey end,
@@ -109,7 +174,7 @@ local options = {
             },
         },
         config = {
-            order = 14,
+            order = 15,
             type = "execute",
             name = L["Config"],
             desc = L["Open configuration"],
@@ -119,24 +184,12 @@ local options = {
     },
 }
 
-local defaults = {
-    char = {
-        toggle = true,
-        accept = true,
-        greeting = true,
-        escort = false,
-        complete = true,
-        inraid = true,
-        dailiesonly = false,
-        pvp = false,
-        diskey = 2,
-    },
-}
-
 function QOM:OnInitialize()
-    self.db = LibStub("AceDB-3.0"):New("QOMDB", defaults);
-    LibStub("AceConfig-3.0"):RegisterOptionsTable("Questomatic", options, {"qm", "qom"});
-    LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Questomatic", "Questomatic");
+    self.db = LibStub("AceDB-3.0"):New("QOMDB", defaults)
+    LibStub("AceConfig-3.0"):RegisterOptionsTable("Questomatic", options, {"qm", "qom"})
+    LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Questomatic", "Questomatic")
+    icon:Register("Questomatic", QOMLDB, QOM.db.char.mapbutton)
+    QOM:toggleIcon(QOM.db.char.toggle)
 end
 
 function QOM:OnEnable()
@@ -146,12 +199,19 @@ function QOM:OnEnable()
     self:RegisterEvent("QUEST_ACCEPT_CONFIRM")
     self:RegisterEvent("QUEST_PROGRESS")
     self:RegisterEvent("QUEST_COMPLETE")
-    self.db.char.toggle = true
 end
 
 function QOM:OnDisable()
     self:UnregisterAllEvents()
     self.db.char.toggle = false
+end
+
+function QOM:toggleIcon(val)
+    if val then
+        QOMLDB.icon = "Interface\\GossipFrame\\ActiveQuestIcon"
+    else
+        QOMLDB.icon = "Interface\\GossipFrame\\AvailableQuestIcon"
+    end
 end
 
 function QOM:CheckConfigs()
@@ -219,7 +279,7 @@ end
 function QOM:QUEST_COMPLETE(eventName, ...)
     if QOM:CheckConfigs() and self.db.char.complete then
         if GetNumQuestChoices() == 0 then
-            GetQuestReward( QuestFrameRewardPanel.itemChoice )
+            GetQuestReward(QuestFrameRewardPanel.itemChoice)
         end
     end
 end
