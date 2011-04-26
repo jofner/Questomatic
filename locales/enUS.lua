@@ -27,3 +27,5 @@ L["Config"] = true
 L["Open configuration"] = true
 L["Left-click to toggle Quest-o-matic"] = true
 L["Right-click to open Quest-o-matic config"] = true
+L["Hide Minimap Button"] = true
+L["Enable/Disable minimap button"] = true
