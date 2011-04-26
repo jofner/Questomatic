@@ -2,7 +2,7 @@
 
 ## Title: Quest-o-matic
 ## Notes: Auto accepting nor turning in quests
-## Author: Miratu <EU-Hellfire>
+## Author: RiskyNet
 ## Version: 2.0 Alpha
 
 ## SavedVariables: QOMDB
@@ -14,4 +14,25 @@
 ## X-Curse-Project-Name: Questomatic
 ## X-Curse-Project-ID: questomatic
 
-embeds.xml
+#@no-lib-strip@
+libs\LibStub\LibStub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+
+libs\AceAddon-3.0\AceAddon-3.0.xml
+libs\AceEvent-3.0\AceEvent-3.0.xml
+libs\AceDB-3.0\AceDB-3.0.xml
+libs\AceLocale-3.0\AceLocale-3.0.xml
+
+libs\AceGUI-3.0\AceGUI-3.0.xml
+libs\AceConsole-3.0\AceConsole-3.0.xml
+libs\AceConfig-3.0\AceConfig-3.0.xml
+
+libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
+#@end-no-lib-strip@
+
+locales\enUS.lua
+locales\frFR.lua
+locales\zhCN.lua
+locales\zhTW.lua
+
+Core.lua
