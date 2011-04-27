@@ -60,6 +60,7 @@ Quest-o-matic changelog
     /qom option command added
     LDB basic support added
     embeds.xml file removed
+    TOC updated for 4.1
 
 1.5.3
     TOC updated for WoW 4x
