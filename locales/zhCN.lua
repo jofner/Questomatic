@@ -3,7 +3,7 @@ local L = LibStub("AceLocale-3.0"):NewLocale("Questomatic", "zhCN", false)
 
 if not L then return end
 
-L["QOM_DESC"] = ""
+L["QOM_DESC"] = true
 L["General Settings"] = true
 L["Types settings"] = true
 L["Other settings"] = true
@@ -26,3 +26,7 @@ L["Enable/Disable auto accepting quests in raid"] = "启用/停用 自动接受�
 L["Disable Key"] = true
 L["Config"] = "配置"
 L["Open configuration"] = "打开配置界面"
+L["Left-click to toggle Quest-o-matic"] = true
+L["Right-click to open Quest-o-matic config"] = true
+L["Hide Minimap Button"] = true
+L["Enable/Disable minimap button"] = true
