@@ -1,4 +1,4 @@
-## Interface: 40000
+## Interface: 40100
 
 ## Title: Quest-o-matic
 ## Notes: Auto accepting nor turning in quests
