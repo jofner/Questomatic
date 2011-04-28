@@ -52,6 +52,10 @@ Quest-o-matic limitations / issues / to-do
 Quest-o-matic changelog
 =========================================================================================
 
+2.1
+    Updated Ace3 libs of AceGUI for 4.1
+    Quest info added into LDB tooltip
+
 2.0
     addon rewritten
     option to select key for temporary disabling auto functions added
