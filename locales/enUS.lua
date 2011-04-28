@@ -29,3 +29,7 @@ L["Left-click to toggle Quest-o-matic"] = true
 L["Right-click to open Quest-o-matic config"] = true
 L["Hide Minimap Button"] = true
 L["Enable/Disable minimap button"] = true
+L["Active quests"] = true
+L["Dailies completed"] = true
+L["Total quests"] = true
+L["New day starts in"] = true
