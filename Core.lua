@@ -7,7 +7,7 @@ local QOM = LibStub("AceAddon-3.0"):NewAddon("Questomatic", "AceConsole-3.0", "A
 local L = LibStub("AceLocale-3.0"):GetLocale("Questomatic", true)
 local QOMLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Questomatic",{
     type = "data source",
-    text = "Quest-o-matic",
+    text = "",
     label = "Questomatic",
     icon = "Interface\\GossipFrame\\AvailableQuestIcon",
     OnClick = function(self, button)
@@ -23,7 +23,13 @@ local QOMLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Questomatic",{
         end
     end,
     OnTooltipShow = function(tooltip)
+        local rTime = GetQuestResetTime()
         tooltip:AddLine("Quest-o-matic")
+        tooltip:AddLine(" ")
+        tooltip:AddLine(L["Active quests"] .. ": " .. numQuests)
+        tooltip:AddLine(L["Dailies completed"] .. ": " .. dailyComplete)
+        tooltip:AddLine(L["Total quests"] .. ": " .. maxDailies)
+        tooltip:AddLine(L["New day starts in"] .. ": " .. QOM:formatSeconds(rTime))
         tooltip:AddLine(" ")
         tooltip:AddLine(L["Left-click to toggle Quest-o-matic"], 0, 1, 0)
         tooltip:AddLine(L["Right-click to open Quest-o-matic config"], 0, 1, 0)
@@ -184,6 +190,19 @@ local options = {
     },
 }
 
+function QOM:formatSeconds(seconds)
+    local d, h, m, s
+    d =  seconds / 86400
+    h = (seconds % 86400) / 3600
+    m = (seconds % 86400  % 3600) / 60
+    s =  seconds % 86400  % 3600  % 60
+    if d >= 1 then return ("%d:%02d:%02d:%02d"):format(d,h,m,s) end
+    if h >= 1 then return (     "%d:%02d:%02d"):format(  h,m,s) end
+    if m >= 1 then return (          "%d:%02d"):format(    m,s) end
+    
+    return s
+end
+
 function QOM:OnInitialize()
     self.db = LibStub("AceDB-3.0"):New("QOMDB", defaults)
     LibStub("AceConfig-3.0"):RegisterOptionsTable("Questomatic", options, {"qm", "qom"})
@@ -199,6 +218,7 @@ function QOM:OnEnable()
     self:RegisterEvent("QUEST_ACCEPT_CONFIRM")
     self:RegisterEvent("QUEST_PROGRESS")
     self:RegisterEvent("QUEST_COMPLETE")
+    self:RegisterEvent("QUEST_LOG_UPDATE")
 end
 
 function QOM:OnDisable()
@@ -282,4 +302,11 @@ function QOM:QUEST_COMPLETE(eventName, ...)
             GetQuestReward(QuestFrameRewardPanel.itemChoice)
         end
     end
+end
+
+function QOM:QUEST_LOG_UPDATE(eventName, ...)
+    numEntries, numQuests = GetNumQuestLogEntries()
+    dailyComplete = GetDailyQuestsCompleted()
+    maxDailies = GetMaxDailyQuests()
+    QOMLDB.text = numQuests .. "/" .. dailyComplete .. "/" .. maxDailies
 end
