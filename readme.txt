@@ -11,10 +11,11 @@ Quest-o-matic is small addon which can auto accept and auto finish quests for yo
     - auto skipping "greetings" text by NPC
     - auto accpet escort quests (disabled by default)
     - auto accept daily quests only (optional)
-    - not accept PvP quests (optional)
+    - not accept PvP flagging quests (optional)
     - auto turn in quests (only if there is no more then one reward)
     - temporary disable "auto" functions by holding modifier key (configurable)
     - show quest levels in quest log
+    - minimap/broker support
 
 
 Quest-o-matic supports LDB display addons like ChocolateBar, Bazooka etc. Question mark on your bar 
@@ -55,7 +56,7 @@ Quest-o-matic changelog
 
 2.1
     Updated Ace3 libs of AceGUI for 4.1
-    Quest info added into LDB tooltip
+    Quest summary info added into LDB tooltip
     Quest levels added into quest log
 
 2.0
