@@ -34,3 +34,5 @@ L["Active quests"] = true
 L["Dailies completed"] = true
 L["Total quests"] = true
 L["New day starts in"] = true
+L["Quest Levels"] = true
+L["Show/Hide quest levels in quest log"] = true

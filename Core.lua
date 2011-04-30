@@ -50,6 +50,7 @@ local defaults = {
         mapbutton = {
             hide = false,
         },
+        questlevels = true,
         diskey = 2,
     },
 }
@@ -169,8 +170,16 @@ local options = {
                         end
                     end
                 },
-                diskey = {
+                questlevels = {
                     order = 14,
+                    type = "toggle",
+                    name = L["Quest Levels"],
+                    desc = L["Show/Hide quest levels in quest log"],
+                    get = function() return QOM.db.char.questlevels end,
+                    set = function( info, value ) QOM.db.char.questlevels = value end
+                },
+                diskey = {
+                    order = 15,
                     type = "select",
                     name = L["Disable Key"],
                     get = function() return QOM.db.char.diskey end,
@@ -180,7 +189,7 @@ local options = {
             },
         },
         config = {
-            order = 15,
+            order = 16,
             type = "execute",
             name = L["Config"],
             desc = L["Open configuration"],
@@ -310,3 +319,22 @@ function QOM:QUEST_LOG_UPDATE(eventName, ...)
     maxDailies = GetMaxDailyQuests()
     QOMLDB.text = "Q:" .. numQuests .. "/" .. maxDailies .. " D:" .. dailyComplete .. "/" .. maxDailies
 end
+
+local function QuestLog_Update()
+    if not QOM.db.char.questlevels then return end
+    
+    local i = 1
+    local scrollOffset = HybridScrollFrame_GetOffset(QuestLogScrollFrame)
+    for i,button in pairs(QuestLogScrollFrame.buttons) do
+        local questIndex = i + scrollOffset
+        local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete, isDaily, questID = GetQuestLogTitle(questIndex)
+        if ( not isHeader ) and questTitle then
+            local newTitle = string.format("[%d] %s", level or "?", questTitle)
+            button:SetText(newTitle)
+            QuestLogTitleButton_Resize(button)
+        end
+        i = i + 1
+    end
+end
+hooksecurefunc("QuestLog_Update", QuestLog_Update)
+hooksecurefunc(QuestLogScrollFrame, "update", QuestLog_Update)
