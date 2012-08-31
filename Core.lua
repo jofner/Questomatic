@@ -316,7 +316,7 @@ end
 function QOM:QUEST_LOG_UPDATE(eventName, ...)
     numEntries, numQuests = GetNumQuestLogEntries()
     dailyComplete = GetDailyQuestsCompleted()
-    maxDailies = GetMaxDailyQuests()
+    maxDailies = 25 --GetMaxDailyQuests()
     QOMLDB.text = "Q:" .. numQuests .. "/" .. maxDailies .. " D:" .. dailyComplete .. "/" .. maxDailies
 end
 
