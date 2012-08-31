@@ -54,11 +54,14 @@ Quest-o-matic limitations / issues / to-do
 Quest-o-matic changelog
 =========================================================================================
 
+2.3
+    Daily record counter added
+    
 2.2
-	TOC updated for 5.0.4
-	Updated Ace3 libs
-	Added LibDataBroker include for compatibility
-	Removed maxDailies info
+    TOC updated for 5.0.4
+    Updated Ace3 libs
+    Added LibDataBroker include for compatibility
+    Removed maxDailies info
 
 2.1
     Updated Ace3 libs of AceGUI for 4.1

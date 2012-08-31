@@ -1,5 +1,5 @@
 --[[
-Copyright (c) 2010-2011, RiskyNet < riskynet@gmail.com >
+Copyright (c) 2010-2012, RiskyNet < riskynet@gmail.com >
 All rights reserved.
 ]]
 
@@ -24,11 +24,15 @@ local QOMLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Questomatic",{
     end,
     OnTooltipShow = function(tooltip)
         local rTime = GetQuestResetTime()
+        local recordinfo = QOM.db.char.record
+        if ( QOM.db.char.recorddate ~= nil ) then
+            recordinfo = recordinfo .. " (" .. QOM.db.char.recorddate .. ")"
+        end
         tooltip:AddLine("Quest-o-matic")
         tooltip:AddLine(" ")
         tooltip:AddLine(L["Active quests"] .. ": " .. numQuests)
         tooltip:AddLine(L["Dailies completed"] .. ": " .. dailyComplete)
-        --tooltip:AddLine(L["Total quests"] .. ": " .. maxDailies)
+        tooltip:AddLine(L["Daily record"] .. ": " .. recordinfo)
         tooltip:AddLine(L["New day starts in"] .. ": " .. QOM:formatSeconds(rTime))
         tooltip:AddLine(" ")
         tooltip:AddLine(L["Left-click to toggle Quest-o-matic"], 0, 1, 0)
@@ -52,6 +56,9 @@ local defaults = {
         },
         questlevels = true,
         diskey = 2,
+        record = 0,
+        recorddate = nil,
+        dateformat = "%d.%m.%Y",
     },
 }
 
@@ -186,10 +193,17 @@ local options = {
                     set = function( info, value ) QOM.db.char.diskey = value end,
                     values = { "Alt", "Ctrl", "Shift" },
                 },
+                dateformat = {
+                    order = 16,
+                    type = "input",
+                    name = L["Date format"],
+                    get = function() return QOM.db.char.dateformat end,
+                    set = function( info, value ) QOM.db.char.dateformat = value end,
+                },
             },
         },
         config = {
-            order = 16,
+            order = 17,
             type = "execute",
             name = L["Config"],
             desc = L["Open configuration"],
@@ -316,9 +330,11 @@ end
 function QOM:QUEST_LOG_UPDATE(eventName, ...)
     numEntries, numQuests = GetNumQuestLogEntries()
     dailyComplete = GetDailyQuestsCompleted()
-    --maxDailies = GetMaxDailyQuests()
-    --QOMLDB.text = "Q:" .. numQuests .. "/" .. maxDailies .. " D:" .. dailyComplete .. "/" .. maxDailies
-    QOMLDB.text = "Q:" .. numQuests .. " D:" .. dailyComplete
+    if self.db.char.record < dailyComplete then
+        self.db.char.record = dailyComplete
+        self.db.char.recorddate = date( self.db.char.dateformat )
+    end
+    QOMLDB.text = "Q:" .. numQuests .. " D:" .. dailyComplete .. " R:" .. self.db.char.record
 end
 
 local function QuestLog_Update()
