@@ -3,14 +3,14 @@
 ## Title: Quest-o-matic
 ## Notes: Auto accepting nor turning in quests
 ## Author: RiskyNet
-## Version: 2.1
+## Version: 2.2
 
 ## SavedVariables: QOMDB
 ## OptionalDeps: Ace3
 
 ## X-Embeds: Ace3
 ## X-Category: Quests
-## X-Curse-Packaged-Version: 2.1
+## X-Curse-Packaged-Version: 2.2
 ## X-Curse-Project-Name: Questomatic
 ## X-Curse-Project-ID: questomatic
 
