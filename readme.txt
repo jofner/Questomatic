@@ -54,6 +54,12 @@ Quest-o-matic limitations / issues / to-do
 Quest-o-matic changelog
 =========================================================================================
 
+2.2
+	TOC updated for 5.0.4
+	Updated Ace3 libs
+	Added LibDataBroker include for compatibility
+	Fixed error with max daily quests function (workaround sets to 25)
+
 2.1
     Updated Ace3 libs of AceGUI for 4.1
     Quest summary info added into LDB tooltip
