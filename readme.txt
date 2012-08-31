@@ -58,7 +58,7 @@ Quest-o-matic changelog
 	TOC updated for 5.0.4
 	Updated Ace3 libs
 	Added LibDataBroker include for compatibility
-	Fixed error with max daily quests function (workaround sets to 25)
+	Removed maxDailies info
 
 2.1
     Updated Ace3 libs of AceGUI for 4.1

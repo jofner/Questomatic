@@ -28,7 +28,7 @@ local QOMLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Questomatic",{
         tooltip:AddLine(" ")
         tooltip:AddLine(L["Active quests"] .. ": " .. numQuests)
         tooltip:AddLine(L["Dailies completed"] .. ": " .. dailyComplete)
-        tooltip:AddLine(L["Total quests"] .. ": " .. maxDailies)
+        --tooltip:AddLine(L["Total quests"] .. ": " .. maxDailies)
         tooltip:AddLine(L["New day starts in"] .. ": " .. QOM:formatSeconds(rTime))
         tooltip:AddLine(" ")
         tooltip:AddLine(L["Left-click to toggle Quest-o-matic"], 0, 1, 0)
@@ -316,8 +316,9 @@ end
 function QOM:QUEST_LOG_UPDATE(eventName, ...)
     numEntries, numQuests = GetNumQuestLogEntries()
     dailyComplete = GetDailyQuestsCompleted()
-    maxDailies = 25 --GetMaxDailyQuests()
-    QOMLDB.text = "Q:" .. numQuests .. "/" .. maxDailies .. " D:" .. dailyComplete .. "/" .. maxDailies
+    --maxDailies = GetMaxDailyQuests()
+    --QOMLDB.text = "Q:" .. numQuests .. "/" .. maxDailies .. " D:" .. dailyComplete .. "/" .. maxDailies
+    QOMLDB.text = "Q:" .. numQuests .. " D:" .. dailyComplete
 end
 
 local function QuestLog_Update()
