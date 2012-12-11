@@ -323,6 +323,8 @@ function QOM:QUEST_COMPLETE(eventName, ...)
     if QOM:CheckConfigs() and self.db.char.complete then
         if GetNumQuestChoices() == 0 then
             GetQuestReward(QuestFrameRewardPanel.itemChoice)
+        elseif GetNumQuestChoices() == 1 and QuestFrameRewardPanel.itemChoice == nil then
+            GetQuestReward(1)
         end
     end
 end
