@@ -56,7 +56,8 @@ Quest-o-matic changelog
 
 2.3
     Daily record counter added
-    auto accept MoP dailies (by vafada)
+    auto accept MoP dailies fix (by vafada)
+    Simplified Korea Localization by RootOne
     
 2.2
     TOC updated for 5.0.4

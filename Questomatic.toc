@@ -1,9 +1,9 @@
-## Interface: 50001
+## Interface: 50100
 
 ## Title: Quest-o-matic
 ## Notes: Auto accepting nor turning in quests
 ## Author: RiskyNet
-## Version: 2.2
+## Version: 2.3
 
 ## SavedVariables: QOMDB
 ## OptionalDeps: Ace3
