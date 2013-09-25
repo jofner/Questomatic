@@ -54,6 +54,9 @@ Quest-o-matic limitations / issues / to-do
 Quest-o-matic changelog
 =========================================================================================
 
+2.3.1
+    TOC updated for 5.4.0
+    
 2.3
     Daily record counter added
     auto accept MoP dailies fix (by vafada)
