@@ -222,7 +222,7 @@ function QOM:formatSeconds(seconds)
     if d >= 1 then return ("%d:%02d:%02d:%02d"):format(d,h,m,s) end
     if h >= 1 then return (     "%d:%02d:%02d"):format(  h,m,s) end
     if m >= 1 then return (          "%d:%02d"):format(    m,s) end
-    
+
     return s
 end
 
@@ -260,20 +260,20 @@ end
 function QOM:CheckConfigs()
     if ( not self.db.char.toggle ) then return end
     if UnitInRaid("player") and ( not self.db.char.inraid ) then return end
-    
+
     if IsModifierKeyDown() then
         if     ( self.db.char.diskey == 1 ) and IsAltKeyDown() then return
         elseif ( self.db.char.diskey == 2 ) and IsControlKeyDown() then return
         elseif ( self.db.char.diskey == 3 ) and IsShiftKeyDown() then return end
     end
-    
+
     return true
 end
 
 function QOM:CheckQuestData()
     if ( not QuestIsDaily() ) and self.db.char.dailiesonly then return end
     if QuestFlagsPVP() and ( not self.db.char.pvp ) then return end
-    
+
     return true
 end
 
@@ -302,7 +302,7 @@ function QOM:GOSSIP_SHOW(eventName, ...)
 end
 
 function QOM:QUEST_DETAIL(eventName, ...)
-    if QOM:CheckConfigs() and QOM:CheckQuestData() and self.db.char.accept then 
+    if QOM:CheckConfigs() and QOM:CheckQuestData() and self.db.char.accept then
         AcceptQuest()
     end
 end
@@ -338,22 +338,3 @@ function QOM:QUEST_LOG_UPDATE(eventName, ...)
     end
     QOMLDB.text = "Q:" .. numQuests .. " D:" .. dailyComplete .. " R:" .. self.db.char.record
 end
-
-local function QuestLog_Update()
-    if not QOM.db.char.questlevels then return end
-    
-    local i = 1
-    local scrollOffset = HybridScrollFrame_GetOffset(QuestLogScrollFrame)
-    for i,button in pairs(QuestLogScrollFrame.buttons) do
-        local questIndex = i + scrollOffset
-        local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete, isDaily, questID = GetQuestLogTitle(questIndex)
-        if ( not isHeader ) and questTitle then
-            local newTitle = string.format("[%d] %s", level or "?", questTitle)
-            button:SetText(newTitle)
-            QuestLogTitleButton_Resize(button)
-        end
-        i = i + 1
-    end
-end
-hooksecurefunc("QuestLog_Update", QuestLog_Update)
-hooksecurefunc(QuestLogScrollFrame, "update", QuestLog_Update)
