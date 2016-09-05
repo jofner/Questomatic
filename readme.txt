@@ -18,8 +18,8 @@ Quest-o-matic is small addon which can auto accept and auto finish quests for yo
     - minimap/broker support
 
 
-Quest-o-matic supports LDB display addons like ChocolateBar, Bazooka etc. Question mark on your bar 
-means that the addon is enabled, exclamation point means it is disabled. Left click changes the state 
+Quest-o-matic supports LDB display addons like ChocolateBar, Bazooka etc. Question mark on your bar
+means that the addon is enabled, exclamation point means it is disabled. Left click changes the state
 of the addon, right click opens the settings. If you have no LDB display addon, you can still have
 minimap icon with same functionality.
 
@@ -45,7 +45,7 @@ You can use /qom command too
 Quest-o-matic limitations / issues / to-do
 =========================================================================================
 
--   not possible to check quest level before accepting, then QOM will never have 
+-   not possible to check quest level before accepting, then QOM will never have
     "Don't accept low level quests" option (for now)
 -   not possible to check PvP quest before accepting, only if quest flags PvP. There is
     option for PvP flag quests, but this doesn't work for normal PvP quests
@@ -54,14 +54,18 @@ Quest-o-matic limitations / issues / to-do
 Quest-o-matic changelog
 =========================================================================================
 
+2.4
+    TOC updated for 7.0
+    Updated Ace3 libs
+
 2.3.1
     TOC updated for 5.4.0
-    
+
 2.3
     Daily record counter added
     auto accept MoP dailies fix (by vafada)
     Simplified Korea Localization by RootOne
-    
+
 2.2
     TOC updated for 5.0.4
     Updated Ace3 libs
@@ -91,30 +95,30 @@ Quest-o-matic changelog
     Revision
 
 1.5.1
-    Traditional Chinese translation added (thanks to whocare) 
-    Info/Spam messages removed 
-    TO-DO added to readme 
-    Useless functions removed and code optimization 
+    Traditional Chinese translation added (thanks to whocare)
+    Info/Spam messages removed
+    TO-DO added to readme
+    Useless functions removed and code optimization
 
 1.5
-    project renamed from FastQuest to Quest-o-matic 
-    Option for auto accepting quests in raid added 
+    project renamed from FastQuest to Quest-o-matic
+    Option for auto accepting quests in raid added
 
 1.4
-    TOC updated for 3.3.0 
-    Ace libs updated to latest version 
+    TOC updated for 3.3.0
+    Ace libs updated to latest version
 
 1.3
-    added localisation support 
-    updated TOC for 3.2.0 
+    added localisation support
+    updated TOC for 3.2.0
 
 1.2
-    added settings into Interface > AddOns menu 
-    small code changes 
+    added settings into Interface > AddOns menu
+    small code changes
 
 1.1
-    added option to enable/disable auto "greetings" skip 
-    added "temporary disable addon functions" key - Ctrl 
+    added option to enable/disable auto "greetings" skip
+    added "temporary disable addon functions" key - Ctrl
 
 1.0
     Initial release
