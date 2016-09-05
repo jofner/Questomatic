@@ -54,6 +54,9 @@ Quest-o-matic limitations / issues / to-do
 Quest-o-matic changelog
 =========================================================================================
 
+2.4.1
+    Don't accept ignored quests
+
 2.4
     TOC updated for 7.0
     Updated Ace3 libs

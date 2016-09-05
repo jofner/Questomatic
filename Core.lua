@@ -302,6 +302,10 @@ function QOM:GOSSIP_SHOW(eventName, ...)
 end
 
 function QOM:QUEST_DETAIL(eventName, ...)
+    if IsQuestIgnored() then
+        return
+    end
+
     if QOM:CheckConfigs() and QOM:CheckQuestData() and self.db.char.accept then
         AcceptQuest()
     end
