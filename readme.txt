@@ -57,6 +57,7 @@ Quest-o-matic changelog
 2.4
     TOC updated for 7.0
     Updated Ace3 libs
+    Switched option function for minimap button
 
 2.3.1
     TOC updated for 5.4.0

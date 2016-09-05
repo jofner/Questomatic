@@ -1,4 +1,4 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("Questomatic", "enUS", true) 
+local L = LibStub("AceLocale-3.0"):NewLocale("Questomatic", "enUS", true)
 
 if not L then return end
 
@@ -27,7 +27,7 @@ L["Config"] = true
 L["Open configuration"] = true
 L["Left-click to toggle Quest-o-matic"] = true
 L["Right-click to open Quest-o-matic config"] = true
-L["Hide Minimap Button"] = true
+L["Minimap Button"] = true
 L["Enable/Disable minimap button"] = true
 L["Active quests"] = true
 L["Dailies completed"] = true
