@@ -5,6 +5,10 @@ All rights reserved.
 
 local QOM = LibStub("AceAddon-3.0"):NewAddon("Questomatic", "AceConsole-3.0", "AceEvent-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Questomatic", true)
+local LibQTip = LibStub("LibQTip-1.0")
+local icon = LibStub("LibDBIcon-1.0")
+local tooltip
+
 local QOMLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Questomatic",{
     type = "data source",
     text = "",
@@ -21,25 +25,11 @@ local QOMLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Questomatic",{
         else
             InterfaceOptionsFrame_OpenToCategory("Questomatic")
         end
-    end,
-    OnTooltipShow = function(tooltip)
-        local rTime = GetQuestResetTime()
-        local recordinfo = QOM.db.char.record
-        if ( QOM.db.char.recorddate ~= nil ) then
-            recordinfo = recordinfo .. " (" .. QOM.db.char.recorddate .. ")"
-        end
-        tooltip:AddLine("Quest-o-matic")
-        tooltip:AddLine(" ")
-        tooltip:AddLine(L["Active quests"] .. ": " .. numQuests)
-        tooltip:AddLine(L["Dailies completed"] .. ": " .. dailyComplete)
-        tooltip:AddLine(L["Daily record"] .. ": " .. recordinfo)
-        tooltip:AddLine(L["New day starts in"] .. ": " .. QOM:formatSeconds(rTime))
-        tooltip:AddLine(" ")
-        tooltip:AddLine(L["Left-click to toggle Quest-o-matic"], 0, 1, 0)
-        tooltip:AddLine(L["Right-click to open Quest-o-matic config"], 0, 1, 0)
+
+        LibQTip:Release(tooltip)
+        tooltip = nil
     end,
 })
-local icon = LibStub("LibDBIcon-1.0")
 
 local defaults = {
     char = {
@@ -341,4 +331,54 @@ function QOM:QUEST_LOG_UPDATE(eventName, ...)
         self.db.char.recorddate = date( self.db.char.dateformat )
     end
     QOMLDB.text = "Q:" .. numQuests .. " D:" .. dailyComplete .. " R:" .. self.db.char.record
+end
+
+--[[
+Broker tooltip section
+]]
+function QOMLDB.OnEnter(self)
+    if tooltip then
+        LibQTip:Release(tooltip)
+    end
+
+    tooltip = LibQTip:Acquire("QuestomaticTooltip", 2, "LEFT", "LEFT")
+    tooltip:Clear()
+    self.tooltip = tooltip
+    local columnCount = tooltip:GetColumnCount()
+    local rTime = GetQuestResetTime()
+    local recordinfo = QOM.db.char.record
+    local lineNum
+    if ( QOM.db.char.recorddate ~= nil ) then
+        recordinfo = recordinfo .. " (" .. QOM.db.char.recorddate .. ")"
+    end
+
+    lineNum = tooltip:AddLine(" ")
+    tooltip:SetCell(lineNum, 1, L["Active quests"] .. ":", "LEFT")
+    tooltip:SetCell(lineNum, 2, "|cffffd200" .. numQuests)
+
+    lineNum = tooltip:AddLine(" ")
+    tooltip:SetCell(lineNum, 1, L["Dailies completed"] .. ":", "LEFT")
+    tooltip:SetCell(lineNum, 2, "|cffffd200" .. dailyComplete)
+
+    lineNum = tooltip:AddLine(" ")
+    tooltip:SetCell(lineNum, 1, L["Daily record"] .. ":", "LEFT")
+    tooltip:SetCell(lineNum, 2, "|cffffd200" .. recordinfo)
+
+    lineNum = tooltip:AddLine(" ")
+    tooltip:SetCell(lineNum, 1, L["New day starts in"] .. ":", "LEFT")
+    tooltip:SetCell(lineNum, 2, "|cffffd200" .. QOM:formatSeconds(rTime))
+
+    tooltip:AddLine(" ")
+    lineNum = tooltip:AddLine(" ")
+    tooltip:SetCell(lineNum, 1, L["Left-click to toggle Quest-o-matic"], nil, "LEFT", columnCount)
+    lineNum = tooltip:AddLine(" ")
+    tooltip:SetCell(lineNum, 1, L["Right-click to open Quest-o-matic config"], nil, "LEFT", columnCount)
+
+    tooltip:SmartAnchorTo(self)
+    tooltip:Show()
+end
+
+function QOMLDB.OnLeave(self)
+    LibQTip:Release(tooltip)
+    self.tooltip = nil
 end
