@@ -27,7 +27,7 @@ local QOMLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Questomatic",{
         end
 
         LibQTip:Release(tooltip)
-        tooltip = nil
+        self.tooltip = nil
     end,
 })
 
