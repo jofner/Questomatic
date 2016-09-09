@@ -31,6 +31,15 @@ local QOMLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Questomatic",{
     end,
 })
 
+local dateFormats = {
+    ["%d.%m.%Y"] = "DD.MM.YYYY",
+    ["%d/%m/%Y"] = "DD/MM/YYYY",
+    ["%m/%d/%Y"] = "MM/DD/YYYY",
+    ["%d.%m.%y"] = "DD.MM.YY",
+    ["%d/%m/%y"] = "DD/MM/YY",
+    ["%m/%d/%y"] = "MM/DD/YY",
+}
+
 local defaults = {
     char = {
         toggle = true,
@@ -185,8 +194,9 @@ local options = {
                 },
                 dateformat = {
                     order = 16,
-                    type = "input",
+                    type = "select",
                     name = L["Date format"],
+                    values = dateFormats,
                     get = function() return QOM.db.char.dateformat end,
                     set = function( info, value ) QOM.db.char.dateformat = value end,
                 },
@@ -315,7 +325,7 @@ function QOM:QUEST_LOG_UPDATE(eventName, ...)
     dailyComplete = GetDailyQuestsCompleted()
     if self.db.char.record < dailyComplete then
         self.db.char.record = dailyComplete
-        self.db.char.recorddate = date( self.db.char.dateformat )
+        self.db.char.recorddate = time()
     end
     QOMLDB.text = "Q: |cffffd200" .. numQuests .. "|r D: |cffffd200" .. dailyComplete .. "|r R: |cffffd200" .. self.db.char.record
 end
@@ -335,7 +345,11 @@ function QOMLDB.OnEnter(self)
     local recordinfo = QOM.db.char.record
     local lineNum
     if ( QOM.db.char.recorddate ~= nil ) then
-        recordinfo = recordinfo .. " (" .. QOM.db.char.recorddate .. ")"
+        if tonumber(QOM.db.char.recorddate) ~= nil then
+            recordinfo = recordinfo .. " (" .. date(QOM.db.char.dateformat, QOM.db.char.recorddate) .. ")"
+        else
+            recordinfo = recordinfo .. " (" .. QOM.db.char.recorddate .. ")"
+        end
     end
 
     lineNum = tooltip:AddLine(" ")
