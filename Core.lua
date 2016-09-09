@@ -317,7 +317,7 @@ function QOM:QUEST_LOG_UPDATE(eventName, ...)
         self.db.char.record = dailyComplete
         self.db.char.recorddate = date( self.db.char.dateformat )
     end
-    QOMLDB.text = "Q:" .. numQuests .. " D:" .. dailyComplete .. " R:" .. self.db.char.record
+    QOMLDB.text = "Q: |cffffd200" .. numQuests .. "|r D: |cffffd200" .. dailyComplete .. "|r R: |cffffd200" .. self.db.char.record
 end
 
 --[[
