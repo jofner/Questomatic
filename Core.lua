@@ -42,7 +42,7 @@ local defaults = {
         dailiesonly = false,
         pvp = false,
         mapbutton = {
-            show = true,
+            hide = false,
         },
         questlevels = true,
         diskey = 2,
@@ -157,13 +157,13 @@ local options = {
                     type = "toggle",
                     name = L["Minimap Button"],
                     desc = L["Enable/Disable minimap button"],
-                    get = function() return QOM.db.char.mapbutton.show end,
+                    get = function() return not QOM.db.char.mapbutton.hide end,
                     set = function( info, value )
-                        QOM.db.char.mapbutton.show = value
-                        if value == true then
-                            icon:Show("Questomatic")
-                        else
+                        QOM.db.char.mapbutton.hide = not value
+                        if value == false then
                             icon:Hide("Questomatic")
+                        else
+                            icon:Show("Questomatic")
                         end
                     end
                 },
