@@ -203,19 +203,6 @@ local options = {
     },
 }
 
-function QOM:formatSeconds(seconds)
-    local d, h, m, s
-    d =  seconds / 86400
-    h = (seconds % 86400) / 3600
-    m = (seconds % 86400  % 3600) / 60
-    s =  seconds % 86400  % 3600  % 60
-    if d >= 1 then return ("%d:%02d:%02d:%02d"):format(d,h,m,s) end
-    if h >= 1 then return (     "%d:%02d:%02d"):format(  h,m,s) end
-    if m >= 1 then return (          "%d:%02d"):format(    m,s) end
-
-    return s
-end
-
 function QOM:OnInitialize()
     self.db = LibStub("AceDB-3.0"):New("QOMDB", defaults)
     LibStub("AceConfig-3.0"):RegisterOptionsTable("Questomatic", options, {"qm", "qom"})
@@ -345,7 +332,6 @@ function QOMLDB.OnEnter(self)
     tooltip:Clear()
     self.tooltip = tooltip
     local columnCount = tooltip:GetColumnCount()
-    local rTime = GetQuestResetTime()
     local recordinfo = QOM.db.char.record
     local lineNum
     if ( QOM.db.char.recorddate ~= nil ) then
@@ -366,7 +352,7 @@ function QOMLDB.OnEnter(self)
 
     lineNum = tooltip:AddLine(" ")
     tooltip:SetCell(lineNum, 1, L["New day starts in"] .. ":", "LEFT")
-    tooltip:SetCell(lineNum, 2, "|cffffd200" .. QOM:formatSeconds(rTime))
+    tooltip:SetCell(lineNum, 2, "|cffffd200" .. SecondsToTime(GetQuestResetTime()))
 
     tooltip:AddLine(" ")
     lineNum = tooltip:AddLine(" ")
