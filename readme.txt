@@ -23,6 +23,9 @@ means that the addon is enabled, exclamation point means it is disabled. Left cl
 of the addon, right click opens the settings. If you have no LDB display addon, you can still have
 minimap icon with same functionality.
 
+Quest-o-matic was mentioned in Spotligth at Curse
+https://mods.curse.com/spotlight/addons/wow/49154-world-of-warcraft-spotlight-quest-o-matic
+
 Quest-o-matic Config and commands
 =========================================================================================
 
@@ -53,6 +56,13 @@ Quest-o-matic limitations / issues / to-do
 =========================================================================================
 Quest-o-matic changelog
 =========================================================================================
+
+2.5
+    Tooltip enchancements via LibQTip
+    Reset time format changed into defauilt game format (redundant functions removed)
+    Minimap button on/off hotfixed
+    New date formats and handling
+        - if you have stored record already and you will change dateformat, the change takes effect after new record
 
 2.4.1
     Don't accept ignored quests
