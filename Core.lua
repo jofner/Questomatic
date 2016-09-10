@@ -1,7 +1,6 @@
---[[
-Copyright (c) 2010-2012, RiskyNet < riskynet@gmail.com >
-All rights reserved.
-]]
+-- Quest-o-matic
+-- Copyright (c) 2010-2016, RiskyNet <riskynet@gmail.com>
+-- All rights reserved.
 
 local QOM = LibStub("AceAddon-3.0"):NewAddon("Questomatic", "AceConsole-3.0", "AceEvent-3.0")
 local L = LibStub("AceLocale-3.0"):GetLocale("Questomatic", true)
