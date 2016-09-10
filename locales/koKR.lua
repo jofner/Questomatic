@@ -36,3 +36,4 @@ L["Total quests"] = "전체 퀘스트"
 L["New day starts in"] = "일일 퀘스트 남은 시간(AM 03:00)"
 L["Quest Levels"] = true
 L["Show/Hide quest levels in quest log"] = true
+L["Show tooltip hint"] = true

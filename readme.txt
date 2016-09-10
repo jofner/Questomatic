@@ -63,6 +63,7 @@ Quest-o-matic changelog
     Minimap button on/off hotfixed
     New date formats and handling
         - if you have stored record already and you will change dateformat, the change takes effect after new record
+    Added option for hide tooltip hints
 
 2.4.1
     Don't accept ignored quests

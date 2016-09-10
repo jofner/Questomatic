@@ -54,6 +54,7 @@ local defaults = {
             hide = false,
         },
         questlevels = true,
+        tooltipHint = true,
         diskey = 2,
         record = 0,
         recorddate = nil,
@@ -184,8 +185,15 @@ local options = {
                     get = function() return QOM.db.char.questlevels end,
                     set = function( info, value ) QOM.db.char.questlevels = value end
                 },
-                diskey = {
+                tooltipHint = {
                     order = 15,
+                    type = "toggle",
+                    name = L["Show tooltip hint"],
+                    get = function() return QOM.db.char.tooltipHint end,
+                    set = function(info, value) QOM.db.char.tooltipHint = value end
+                },
+                diskey = {
+                    order = 16,
                     type = "select",
                     name = L["Disable Key"],
                     get = function() return QOM.db.char.diskey end,
@@ -193,7 +201,7 @@ local options = {
                     values = { "Alt", "Ctrl", "Shift" },
                 },
                 dateformat = {
-                    order = 16,
+                    order = 17,
                     type = "select",
                     name = L["Date format"],
                     values = dateFormats,
@@ -368,11 +376,13 @@ function QOMLDB.OnEnter(self)
     tooltip:SetCell(lineNum, 1, L["New day starts in"] .. ":", "LEFT")
     tooltip:SetCell(lineNum, 2, "|cffffd200" .. SecondsToTime(GetQuestResetTime()))
 
-    tooltip:AddLine(" ")
-    lineNum = tooltip:AddLine(" ")
-    tooltip:SetCell(lineNum, 1, L["Left-click to toggle Quest-o-matic"], nil, "LEFT", columnCount)
-    lineNum = tooltip:AddLine(" ")
-    tooltip:SetCell(lineNum, 1, L["Right-click to open Quest-o-matic config"], nil, "LEFT", columnCount)
+    if QOM.db.char.tooltipHint == true then
+        tooltip:AddLine(" ")
+        lineNum = tooltip:AddLine(" ")
+        tooltip:SetCell(lineNum, 1, L["Left-click to toggle Quest-o-matic"], nil, "LEFT", columnCount)
+        lineNum = tooltip:AddLine(" ")
+        tooltip:SetCell(lineNum, 1, L["Right-click to open Quest-o-matic config"], nil, "LEFT", columnCount)
+    end
 
     tooltip:SmartAnchorTo(self)
     tooltip:Show()
