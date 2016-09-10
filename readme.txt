@@ -65,6 +65,8 @@ Quest-o-matic changelog
         - if you have stored record already and you will change dateformat, the change takes effect after new record
     Added option for hide tooltip hints
     Spacers in option before selects for better formatting
+    Temporary disabled quest levels option
+        - function will be adjusted in future
 
 2.4.1
     Don't accept ignored quests

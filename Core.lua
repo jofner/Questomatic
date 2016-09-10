@@ -182,7 +182,8 @@ local options = {
                     name = L["Quest Levels"],
                     desc = L["Show/Hide quest levels in quest log"],
                     get = function() return QOM.db.char.questlevels end,
-                    set = function( info, value ) QOM.db.char.questlevels = value end
+                    set = function( info, value ) QOM.db.char.questlevels = value end,
+                    disabled = true
                 },
                 tooltipHint = {
                     order = 15,
