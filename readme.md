@@ -57,6 +57,9 @@ You can use /qom command too
 
 ### Quest-o-matic changelog
 
+**2.x**
+- Added files locales.xml and embeds.xml to load dependencies
+
 **2.5**
 - Tooltip enchancements via LibQTip
 - Reset time format changed into defauilt game format (redundant functions removed)
