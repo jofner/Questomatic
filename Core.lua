@@ -192,16 +192,30 @@ local options = {
                     get = function() return QOM.db.char.tooltipHint end,
                     set = function(info, value) QOM.db.char.tooltipHint = value end
                 },
-                diskey = {
+                spacer1 = {
                     order = 16,
+                    name = "",
+                    type = "description",
+                    width = "full",
+                    cmdHidden = true
+                },
+                diskey = {
+                    order = 17,
                     type = "select",
                     name = L["Disable Key"],
                     get = function() return QOM.db.char.diskey end,
                     set = function( info, value ) QOM.db.char.diskey = value end,
                     values = { "Alt", "Ctrl", "Shift" },
                 },
+                spacer2 = {
+                    order = 18,
+                    name = "",
+                    type = "description",
+                    width = "full",
+                    cmdHidden = true
+                },
                 dateformat = {
-                    order = 17,
+                    order = 18,
                     type = "select",
                     name = L["Date format"],
                     values = dateFormats,
