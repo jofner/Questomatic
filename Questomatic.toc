@@ -1,16 +1,16 @@
-## Interface: 70000
+## Interface: 70100
 
 ## Title: Quest-o-matic
 ## Notes: Auto accepting nor turning in quests
 ## Author: RiskyNet
-## Version: 2.5
+## Version: 2.6
 
 ## SavedVariables: QOMDB
 ## OptionalDeps: Ace3
 
 ## X-Embeds: Ace3
 ## X-Category: Quests
-## X-Curse-Packaged-Version: 2.5
+## X-Curse-Packaged-Version: 2.6
 ## X-Curse-Project-Name: Questomatic
 ## X-Curse-Project-ID: questomatic
 

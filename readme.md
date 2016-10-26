@@ -57,7 +57,8 @@ You can use /qom command too
 
 ### Quest-o-matic changelog
 
-**2.x**
+**2.6**
+- Updated TOC to 7.1
 - Added files locales.xml and embeds.xml to load dependencies
 
 **2.5**
